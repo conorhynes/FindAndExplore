@@ -25,10 +25,5 @@ public class Score : MonoBehaviour
 	{
 		System.IO.File.WriteAllText ("../Score/somewhere.txt", _score.ToString ("F2"));	
 	}
-	public string readScore()
-	{
-		string score = System.IO.File.ReadAllText ("../Score/somewhere.txt");
-		return score;
-	}
 }
 
