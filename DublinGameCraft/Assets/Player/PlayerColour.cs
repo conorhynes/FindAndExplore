@@ -15,14 +15,17 @@ public class PlayerColour : MonoBehaviour {
 		if(Input.GetKey(KeyCode.Alpha1))
 		{
 			gameObject.layer = 8;
+            gameObject.renderer.material.color = Color.red;
 		}
 		else if(Input.GetKey(KeyCode.Alpha2))
 		{
 			gameObject.layer = 9;
+            gameObject.renderer.material.color = Color.blue;
 		}
 		else if(Input.GetKey(KeyCode.Alpha3))
 		{
 			gameObject.layer = 10;
+            gameObject.renderer.material.color = Color.green;
 		}
 		
 		
