@@ -75,6 +75,6 @@ public class SpawnLevel : MonoBehaviour
                 move.renderer.material.color = Color.red;
 				ob.layer = 8;
             }
-        }s
+        }
 	}
 }
