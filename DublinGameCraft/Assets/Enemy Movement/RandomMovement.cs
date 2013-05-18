@@ -19,6 +19,34 @@ public class RandomMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int rand;
+        Vector3 pos = transform.position;
+        pos.z = 0;
+        transform.position = pos;
+        if (rigidbody.velocity.x == 0)
+        {
+            rand = Random.Range(1, 3);
+            if (rand % 2 == 0)
+            {
+                rigidbody.AddForce(new Vector3(0.1f, 0, 0));
+            }
+            else
+            {
+                rigidbody.AddForce(new Vector3(-0.1f, 0, 0));
+            }
+        }
+        if (rigidbody.velocity.y == 0)
+        {
+            rand = Random.Range(1, 3);
+            if (rand % 2 == 0)
+            {
+                rigidbody.AddForce(new Vector3(0, 0.1f, 0));
+            }
+            else
+            {
+                rigidbody.AddForce(new Vector3(0, -0.1f, 0));
+            }
+        }
     }
 
     void OnBecameInvisible()
