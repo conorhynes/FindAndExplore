@@ -3,7 +3,9 @@ using System.Collections;
 
 public class SpawnLevel : MonoBehaviour
 {
-
+	int _spawnCount = 5;
+	float _timer = 0;
+	int _limit = 20;
     // Use this for initialization
     void Start()
     {
@@ -11,16 +13,32 @@ public class SpawnLevel : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+	void Update()
     {
-
+		_timer += Time.deltaTime;
+		if(_timer > _limit)
+		{
+			generateNew ();
+			_spawnCount+=(_spawnCount/2) + 1;
+			_timer = 0;
+			if(_limit > 5)
+			{
+				_limit--;
+			}
+			Vector3 pos = Camera.main.transform.position;
+			if(pos.z > -20)
+			{
+				pos.z-= 2;
+			}
+			Camera.main.transform.position = pos;
+		}
     }
 	
 	public void generateNew()
 	{
 		Vector3 wrapmax = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         Vector3 wrapmin = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.transform.position.z));
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < _spawnCount; i++)
         {
             float x;
             float y;
