@@ -7,7 +7,7 @@ public class SpawnLevel : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+        generateNew ();
     }
 
     // Update is called once per frame
