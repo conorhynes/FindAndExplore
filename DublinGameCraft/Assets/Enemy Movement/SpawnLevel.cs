@@ -13,17 +13,18 @@ public class SpawnLevel : MonoBehaviour
         {
             float x;
             float y;
-            if (i % 4 == 0)
+            int rand = Random.Range(1, 5);
+            if (rand % 4 == 0)
             {
                 x = wrapmax.x;
                 y = Random.Range(wrapmax.y, wrapmin.y);
             }
-            else if (i % 4 == 1)
+            else if (rand % 4 == 1)
             {
                 x = Random.Range(wrapmax.x, wrapmin.x);
                 y = wrapmin.y;
             }
-            else if (i % 4 == 2)
+            else if (rand % 4 == 2)
             {
                 x = wrapmin.x;
                 y = Random.Range(wrapmax.y, wrapmin.y);
@@ -34,6 +35,8 @@ public class SpawnLevel : MonoBehaviour
                 y = wrapmin.y;
             }
 
+            rand = Random.Range(1, 4);
+
             GameObject ob = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             Vector3 pos = new Vector3(x, 0, y);
             Rigidbody gameObjectsRigidBody = ob.AddComponent<Rigidbody>();
@@ -41,6 +44,23 @@ public class SpawnLevel : MonoBehaviour
             gameObjectsRigidBody.useGravity = false;
             ob.rigidbody.position = pos;
             ob.AddComponent("RandomMovement");
+
+            RandomMovement move;
+            move = ob.GetComponent<RandomMovement>();
+            move.Colour = rand;
+            if (rand == 1)
+            {
+                move.renderer.material.color = Color.blue;
+            }
+            else if (rand == 2)
+            {
+                move.renderer.material.color = Color.green;
+            }
+            else
+            {
+                move.renderer.material.color = Color.red;
+            }
+
         }
     }
 
