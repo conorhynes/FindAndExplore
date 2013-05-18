@@ -8,7 +8,7 @@ public class SplashScore : MonoBehaviour {
 	void Start () {
 		_score = readScore ();
 		guiText.fontSize = 30;
-		guiText.text = "Score: " + _score.ToString ("F2");
+		guiText.text = "Score: " + _score;
 		transform.position = new Vector3(0, 1, 0);
 	}
 	
