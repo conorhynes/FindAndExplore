@@ -111,5 +111,6 @@ public class RandomMovement : MonoBehaviour
 		{
             pos.x = wrapmin.x + 1;
 		}
+		transform.position = pos;
 	}
 }
