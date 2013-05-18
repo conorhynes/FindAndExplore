@@ -47,6 +47,9 @@ public class CollisionControl : MonoBehaviour {
 			{
 				print ("trueCollide");
 				Physics.IgnoreLayerCollision(contact.thisCollider.gameObject.layer,collision.collider.gameObject.layer,false);
+				GameObject ob = GameObject.FindGameObjectWithTag ("Player");
+				Score score = ob.GetComponent<Score>();
+				score.saveScore ();
 			}
 			
 
