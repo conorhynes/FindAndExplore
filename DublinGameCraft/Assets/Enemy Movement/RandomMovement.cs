@@ -1,23 +1,30 @@
 using UnityEngine;
 using System.Collections;
 
-public class RandomMovement : MonoBehaviour {
-	Vector3 _direction;
-	bool forceAdded = false;
-	// Use this for initialization
-	void Start () {
-		float x = Random.Range (-1f, 1f);
-		float y = Random.Range (-1f, 1f);
-		_direction = new Vector3(x, 0, y);
-		if(!forceAdded)
-		{
-			_direction = _direction.normalized;
-			forceAdded = true;
-			rigidbody.AddForce(_direction * 10);
-		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
+public class SpawnLevel : MonoBehaviour
+{
+
+    // Use this for initialization
+    void Start()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            float x = Random.Range(-10f, 10f);
+            float y = Random.Range(-10f, 10f);
+
+            GameObject ob = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            Vector3 pos = new Vector3(x, y, 0);
+            Rigidbody gameObjectsRigidBody = ob.AddComponent<Rigidbody>();
+            gameObjectsRigidBody.mass = 1;
+            gameObjectsRigidBody.useGravity = false;
+            ob.rigidbody.position = pos;
+            ob.AddComponent("RandomMovement");
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
