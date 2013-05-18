@@ -51,16 +51,18 @@ public class SpawnLevel : MonoBehaviour
             if (rand == 1)
             {
                 move.renderer.material.color = Color.blue;
+				ob.layer = 9;
             }
             else if (rand == 2)
             {
                 move.renderer.material.color = Color.green;
+				ob.layer = 10;
             }
             else
             {
                 move.renderer.material.color = Color.red;
+				ob.layer = 8;
             }
-
         }
     }
 

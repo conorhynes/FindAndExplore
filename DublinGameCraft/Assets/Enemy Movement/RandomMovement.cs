@@ -59,22 +59,22 @@ public class RandomMovement : MonoBehaviour
 
         if (transform.position.x > wrapmin.x)
         {
-            pos.x = wrapmax.x;
+            pos.x = wrapmax.x - 1;
             //vel.x = vel.x * -1;
         }
         else if (transform.position.x < wrapmax.x)
         {
-            pos.x = wrapmin.x;
+            pos.x = wrapmin.x + 1;
             //vel.x = vel.x * -1;
         }
         if (transform.position.y > wrapmin.y)
         {
-            pos.y = wrapmax.y;
+            pos.y = wrapmax.y - 1;
             //vel.y = vel.y * -1;
         }
         else if (transform.position.y < wrapmax.y)
         {
-            pos.y = wrapmin.y;
+            pos.y = wrapmin.y + 1;
             //vel.y = vel.y * -1;
         }
         transform.position = pos;
