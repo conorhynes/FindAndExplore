@@ -4,7 +4,6 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 public float MoveSpeed = 10;
-public float RotateSpeed = 40;
  
 	void Start()
 	{
