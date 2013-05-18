@@ -19,7 +19,12 @@ public class PlayerColour : MonoBehaviour {
 		else if(Input.GetKey(KeyCode.Alpha2))
 		{
 			gameObject.layer = 9;
-		}		
+		}
+		else if(Input.GetKey(KeyCode.Alpha3))
+		{
+			gameObject.layer = 10;
+		}
+		
 		
 	}
 	
