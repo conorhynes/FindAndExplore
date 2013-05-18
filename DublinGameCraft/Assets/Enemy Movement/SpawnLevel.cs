@@ -14,7 +14,7 @@ public class SpawnLevel : MonoBehaviour
             float y = Random.Range(-10f, 10f);
 
             GameObject ob = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            Vector3 pos = new Vector3(x, y, 0);
+            Vector3 pos = new Vector3(x, 0, y);
             Rigidbody gameObjectsRigidBody = ob.AddComponent<Rigidbody>();
             gameObjectsRigidBody.mass = 1;
             gameObjectsRigidBody.useGravity = false;

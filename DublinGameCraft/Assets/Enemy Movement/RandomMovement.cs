@@ -11,7 +11,7 @@ public class RandomMovement : MonoBehaviour
     {
         float x = Random.Range(-1f, 1f);
         float y = Random.Range(-1f, 1f);
-        _direction = new Vector3(x, y, 0);
+        _direction = new Vector3(x, 0, y);
         _direction = _direction.normalized;
         rigidbody.AddForce(_direction * 10);
     }
