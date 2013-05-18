@@ -44,6 +44,7 @@ public class SpawnLevel : MonoBehaviour
             gameObjectsRigidBody.useGravity = false;
             ob.rigidbody.position = pos;
             ob.AddComponent("RandomMovement");
+			ob.AddComponent("ObjectCollision");
 
             RandomMovement move;
             move = ob.GetComponent<RandomMovement>();
