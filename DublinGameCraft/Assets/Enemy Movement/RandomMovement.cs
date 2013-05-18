@@ -85,4 +85,31 @@ public class RandomMovement : MonoBehaviour
         get { return _colour; }
         set { _colour = value; }
     }
+	
+	public void warp()
+	{
+		Vector3 pos = transform.position;
+        Vector3 wrapmin = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.transform.position.z));
+        Vector3 wrap = new Vector3(wrapmin.y - 0, wrapmin.x - 0);
+        Vector3 wrapmax = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        Vector3 wrapMax = new Vector3(wrapmax.y + 0, wrapmax.x + 0);
+		
+		
+		if(rigidbody.velocity.y > 0)
+		{
+            pos.y = wrapmax.y - 1;
+		}
+		else if(rigidbody.velocity.y < 0)
+		{
+            pos.x = wrapmin.y + 1;
+		}
+		if(rigidbody.velocity.x > 0)
+		{
+            pos.x = wrapmax.x - 1;
+		}
+		else if(rigidbody.velocity.y < 0)
+		{
+            pos.x = wrapmin.x + 1;
+		}
+	}
 }

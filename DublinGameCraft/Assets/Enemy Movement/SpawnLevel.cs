@@ -7,7 +7,18 @@ public class SpawnLevel : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Vector3 wrapmax = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+	
+	public void generateNew()
+	{
+		Vector3 wrapmax = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         Vector3 wrapmin = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, Camera.main.transform.position.z));
         for (int i = 0; i < 10; i++)
         {
@@ -64,12 +75,6 @@ public class SpawnLevel : MonoBehaviour
                 move.renderer.material.color = Color.red;
 				ob.layer = 8;
             }
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+        }s
+	}
 }
