@@ -8,7 +8,7 @@ public class RandomMovement : MonoBehaviour {
 	void Start () {
 		float x = Random.Range (-1f, 1f);
 		float y = Random.Range (-1f, 1f);
-		_direction = new Vector3(x, y, 0);
+		_direction = new Vector3(x, 0, y);
 		if(!forceAdded)
 		{
 			_direction = _direction.normalized;
