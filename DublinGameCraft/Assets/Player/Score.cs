@@ -20,5 +20,15 @@ public class Score : MonoBehaviour
 		guiText.text = "Score: " + _score.ToString ("F2");
 		//setPosition ();
 	}
+	
+	public void saveScore()
+	{
+		System.IO.File.WriteAllText ("../Score/somewhere.txt", _score.ToString ("F2"));	
+	}
+	public string readScore()
+	{
+		string score = System.IO.File.ReadAllText ("../Score/somewhere.txt");
+		return score;
+	}
 }
 
