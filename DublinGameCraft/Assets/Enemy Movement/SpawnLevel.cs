@@ -56,6 +56,7 @@ public class SpawnLevel : MonoBehaviour
             ob.rigidbody.position = pos;
             ob.AddComponent("RandomMovement");
 			ob.AddComponent("ObjectCollision");
+			ob.AddComponent ("MagneticPull");
 
             RandomMovement move;
             move = ob.GetComponent<RandomMovement>();
