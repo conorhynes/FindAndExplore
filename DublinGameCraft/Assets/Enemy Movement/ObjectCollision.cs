@@ -41,12 +41,15 @@ public class ObjectCollision : MonoBehaviour {
 			if(_willCollide)
 			{
 				print ("falseCollide");
-				Physics.IgnoreLayerCollision(contact.thisCollider.gameObject.layer,object1.layer);
+				Physics.IgnoreLayerCollision(object2.layer,object1.layer);
 			}
 			else
 			{
+				object1Component.warp();
+				object2Component.warp();
+
 				print ("trueCollide");
-				Physics.IgnoreLayerCollision(contact.thisCollider.gameObject.layer,object1.layer,false);
+				Physics.IgnoreLayerCollision(object2.gameObject.layer,object1.layer,false);
 			}
 			
 

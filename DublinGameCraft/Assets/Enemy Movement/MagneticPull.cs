@@ -17,7 +17,7 @@ public class MagneticPull : MonoBehaviour {
 		
         if (target.layer != gameObject.layer) {   
             this.transform.LookAt( target.transform );
-            this.transform.position = Vector3.Lerp( transform.position, target.transform.position, (float)0.009);
+            this.transform.position = Vector3.Lerp( transform.position, target.transform.position, Time.deltaTime);
         }
     }
 
