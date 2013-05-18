@@ -12,12 +12,8 @@ public class RandomMovement : MonoBehaviour
         float x = Random.Range(-1f, 1f);
         float y = Random.Range(-1f, 1f);
         _direction = new Vector3(x, y, 0);
-        if (!forceAdded)
-        {
-            _direction = _direction.normalized;
-            forceAdded = true;
-            rigidbody.AddForce(_direction * 10);
-        }
+        _direction = _direction.normalized;
+        rigidbody.AddForce(_direction * 10);
     }
 
     // Update is called once per frame
