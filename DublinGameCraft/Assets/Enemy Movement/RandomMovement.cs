@@ -1,30 +1,42 @@
 using UnityEngine;
 using System.Collections;
 
-public class SpawnLevel : MonoBehaviour
+public class RandomMovement : MonoBehaviour
 {
+    Vector3 _direction;
+    int _colour;
 
     // Use this for initialization
     void Start()
     {
-        for (int i = 0; i < 10; i++)
+        float x = Random.Range(-1f, 1f);
+        float y = Random.Range(-1f, 1f);
+        _direction = new Vector3(x, y, 0);
+        if (!forceAdded)
         {
-            float x = Random.Range(-10f, 10f);
-            float y = Random.Range(-10f, 10f);
-
-            GameObject ob = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            Vector3 pos = new Vector3(x, y, 0);
-            Rigidbody gameObjectsRigidBody = ob.AddComponent<Rigidbody>();
-            gameObjectsRigidBody.mass = 1;
-            gameObjectsRigidBody.useGravity = false;
-            ob.rigidbody.position = pos;
-            ob.AddComponent("RandomMovement");
+            _direction = _direction.normalized;
+            forceAdded = true;
+            rigidbody.AddForce(_direction * 10);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
 
+    void onBecomeInvisible()
+    {
+        Vector3 pos = rigidbody.position;
+        float camXMax = Camera.mainCamera.pixelWidth;
+        float camYMax = Camera.mainCamera.pixelHeight;
+        float camXMin = Camera.mainCamera.pixelWidth - Camera.mainCamera.GetScreenWidth();
+        float camYMin = Camera.mainCamera.pixelHeight - Camera.mainCamera.GetScreenHeight();
+    }
+
+    public int Colour
+    {
+        get { return _colour; }
+        set { _colour = value; }
     }
 }
