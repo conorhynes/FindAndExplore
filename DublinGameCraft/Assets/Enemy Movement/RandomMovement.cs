@@ -11,7 +11,7 @@ public class RandomMovement : MonoBehaviour
     {
         float x = Random.Range(-1f, 1f);
         float y = Random.Range(-1f, 1f);
-        _direction = new Vector3(x, 0, y);
+        _direction = new Vector3(x, y, 0);
         _direction = _direction.normalized;
         rigidbody.AddForce(_direction * 50);
     }
@@ -21,7 +21,7 @@ public class RandomMovement : MonoBehaviour
     {
         int rand;
         Vector3 pos = transform.position;
-        pos.y = 0;
+        pos.z = 0;
         transform.position = pos;
         if (rigidbody.velocity.x == 0)
         {
@@ -35,16 +35,16 @@ public class RandomMovement : MonoBehaviour
                 rigidbody.AddForce(new Vector3(-0.1f, 0, 0));
             }
         }
-        if (rigidbody.velocity.z == 0)
+        if (rigidbody.velocity.y == 0)
         {
             rand = Random.Range(1, 3);
             if (rand % 2 == 0)
             {
-                rigidbody.AddForce(new Vector3(0, 0, 0.1f));
+                rigidbody.AddForce(new Vector3(0, 0.1f, 0));
             }
             else
             {
-                rigidbody.AddForce(new Vector3(0, 0, -0.1f));
+                rigidbody.AddForce(new Vector3(0, -0.1f, 0));
             }
         }
     }
@@ -67,14 +67,14 @@ public class RandomMovement : MonoBehaviour
             pos.x = wrapmin.x;
             //vel.x = vel.x * -1;
         }
-        if (transform.position.z > wrapmin.z)
+        if (transform.position.y > wrapmin.y)
         {
-            pos.z = wrapmax.z;
+            pos.y = wrapmax.y;
             //vel.y = vel.y * -1;
         }
-        else if (transform.position.z < wrapmax.z)
+        else if (transform.position.y < wrapmax.y)
         {
-            pos.y = wrapmin.z;
+            pos.y = wrapmin.y;
             //vel.y = vel.y * -1;
         }
         transform.position = pos;
