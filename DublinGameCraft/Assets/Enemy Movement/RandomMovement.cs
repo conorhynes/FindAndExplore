@@ -21,7 +21,7 @@ public class RandomMovement : MonoBehaviour
     {
         int rand;
         Vector3 pos = transform.position;
-        pos.z = 0;
+        pos.y = 0;
         transform.position = pos;
         if (rigidbody.velocity.x == 0)
         {
@@ -35,16 +35,16 @@ public class RandomMovement : MonoBehaviour
                 rigidbody.AddForce(new Vector3(-0.1f, 0, 0));
             }
         }
-        if (rigidbody.velocity.y == 0)
+        if (rigidbody.velocity.z == 0)
         {
             rand = Random.Range(1, 3);
             if (rand % 2 == 0)
             {
-                rigidbody.AddForce(new Vector3(0, 0.1f, 0));
+                rigidbody.AddForce(new Vector3(0, 0, 0.1f));
             }
             else
             {
-                rigidbody.AddForce(new Vector3(0, -0.1f, 0));
+                rigidbody.AddForce(new Vector3(0, 0, -0.1f));
             }
         }
     }
