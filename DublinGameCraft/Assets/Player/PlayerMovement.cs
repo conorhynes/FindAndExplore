@@ -18,7 +18,7 @@ public float MoveSpeed = 10;
 	 	float Vertical = Input.GetAxis("Vertical") * Time.deltaTime * MoveSpeed;
 
 	    // Move the player
-	    transform.Translate(Horizonal,Vertical,0);
+	    transform.Translate(Horizonal,0,Vertical);
 	 
 	}
 }
