@@ -6,6 +6,7 @@ public class SpawnLevel : MonoBehaviour
 	int _spawnCount = 5;
 	float _timer = 0;
 	int _limit = 20;
+	float disc;
     // Use this for initialization
     void Start()
     {
@@ -25,14 +26,26 @@ public class SpawnLevel : MonoBehaviour
 			{
 				_limit--;
 			}
+				disc = 0;
+		}
+		if(disc < 2)
+		{
 			Vector3 pos = Camera.main.transform.position;
+			
 			if(pos.z > -20)
 			{
-				pos.z-= 2;
+				pos = cameraPan (pos);	
+				Camera.main.transform.position = pos;
 			}
-			Camera.main.transform.position = pos;
 		}
     }
+	
+	Vector3 cameraPan(Vector3 pos)
+	{
+		pos.z-=0.1f;
+		disc += 0.1f;
+		return pos;
+	}
 	
 	public void generateNew()
 	{
