@@ -18,7 +18,7 @@ public class SplashScore : MonoBehaviour {
 	}
 	public string readScore()
 	{
-		string score = System.IO.File.ReadAllText ("../Score/somewhere.txt");
+		string score = PlayerPrefs.GetString ("score");
 		return score;
 	}
 }

@@ -23,7 +23,7 @@ public class Score : MonoBehaviour
 	
 	public void saveScore()
 	{
-		System.IO.File.WriteAllText ("../Score/somewhere.txt", _score.ToString ("F2"));	
+		PlayerPrefs.SetString ("score", _score.ToString ("F2"));
 	}
 }
 
